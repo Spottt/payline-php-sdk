@@ -41,7 +41,7 @@ class PaylineSDK
      * Payline release corresponding to this version of the package
      * @see https://docs.payline.com/display/DT/API+version+history
      */
-    const SDK_RELEASE = 'PHP SDK 4.66';
+    const SDK_RELEASE = 'PHP SDK 4.66-linked-transaction-id';
 
     /**
      * development environment flag
@@ -1716,7 +1716,8 @@ class PaylineSDK
             'cvx'                    => $array['walletCvx'],
             'privateDataList'        => $this->privateData,
             'authentication3DSecure' => $this->authentication3DSecure($array['3DSecure']),
-            'subMerchant'            => $this->subMerchant($array['subMerchant'])
+            'subMerchant'            => $this->subMerchant($array['subMerchant']),
+            'linkedTransactionId'    => $array['linkedTransactionId'],
         );
         return $this->webServiceRequest($array, $WSRequest, self::DIRECT_API, 'doImmediateWalletPayment');
     }
